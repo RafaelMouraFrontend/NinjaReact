@@ -14,7 +14,7 @@ class App extends Component {
       isFetching: false
     }
   }
-  getGitHubApiUrl(username, type){
+  getGitHubApiUrl (username, type) {
     const internalUsername = username ? `/${username}` : ''
     const internalType = type ? `/${type}` : ''
 
@@ -27,10 +27,8 @@ class App extends Component {
     const ENTER = 13
     const target = e.target
 
-    
-
     if (keyCode === ENTER) {
-      this.setState({isFetching: true})
+      this.setState({ isFetching: true })
       target.disabled = true
       ajax().get(this.getGitHubApiUrl(value))
         .then((result) => {
@@ -47,20 +45,20 @@ class App extends Component {
             starred: []
           })
         }).always(() => {
-          this.setState({isFetching: false})
+          this.setState({ isFetching: false })
         })
     }
   }
-  getRepos(type) {
+  getRepos (type) {
     return (e) => {
       const username = this.state.userinfo.login
       ajax().get(this.getGitHubApiUrl(username, type))
         .then((result) => {
           this.setState({
-            [type]: result.map((repo) => ( {
-                name: repo.name,
-                link: repo.html_url
-              })
+            [type]: result.map((repo) => ({
+              name: repo.name,
+              link: repo.html_url
+            })
             )
           })
         })

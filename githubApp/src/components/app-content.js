@@ -37,6 +37,6 @@ Repos.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   handleSearch: PropTypes.func.isRequired,
   getRepos: PropTypes.func.isRequired,
-  getStarred: PropTypes.func.isRequired,
+  getStarred: PropTypes.func.isRequired
 }
 export default AppContent
